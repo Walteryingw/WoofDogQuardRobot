@@ -50,13 +50,13 @@ int j[12];
 
 int Z0=135,Z1=45,Z2=135,Z3=45; //大腿
 int Z4=90,z5=90,z6=90,z7=90; // 小腿
-int z8=90,z9=90,z10=90,z11=00;// 肩膀
+int z8=90,z9=90,z10=90,z11=90;// 肩膀
 
 
 /*注意修改以下WIFI名称和密码！！！！！！
  * 
  */
-const char* ssid     = "YINGWANGTOY";   ///// WIFI
-const char* password = "1236547890"; ////// WIFI密码
+const char* ssid     = "XXXXXXXX";   ///// WIFI
+const char* password = "12345678"; ////// WIFI密码
 /*
  */
