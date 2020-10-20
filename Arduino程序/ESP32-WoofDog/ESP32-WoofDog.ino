@@ -253,7 +253,6 @@ void trot()//小跑步态
   r1 = 45;
   r2 = 90;
   H0 = 40; //抬腿最大高度，Y轴方向
-  a = 25; //各腿Z轴方向坐标
 
 
   if (t < Tm) //前半周期，1、4腿在后；2、3腿在前
@@ -317,11 +316,10 @@ void turn2()//平移步态
   r1 = 45;
   r2 = 90;
   H0 = 40; //抬腿高度
-  a = 25; //各腿Z轴方向坐标
+
   if (zz == 0) //Z轴转角，zz==0即横向无转动
   {
     H0 = 0;
-    a = 25;
   }
 
   if (t < Tm)
@@ -382,15 +380,9 @@ void walk()//爬行步态，行走步态，相序为1-4-2-3，每个动作四分
 
 {
   d = atan(z / Hc);
-  r1 = 40;
+  r1 = 45;
   r2 = 90;
-  H0 = 50;
-  a = 25;
-  if (S0 == 0 && z == 0)
-  {
-    H0 = 0;
-    a = 25;
-  }
+  H0 = 40;
 
   if (t < Tm) //第四分之一周期
   {
@@ -608,27 +600,27 @@ void mpu6050()//自稳模块
 }
 
 
-void wentai()//静态动作方程
+void stable()//静态方程
 {
-  float E;
-  E = z / 180.0 * PI; //E为航向角
+  float Z;
+  Z = z / 180.0 * PI; //E为航向角
 
-  x1 = -Hc0 * cos(A) * sin(A) + (l / 2 * cos(0.2 * PI - E) - w); //a为俯仰角//
+  x1 = -Hc0 * cos(A) * sin(A) + (l / 2 * cos(0.2 * PI - Z) - w); //a为俯仰角//
   y5 = -Hc0 * cos(A) * cos(A) / cos(D); //d为横滚角
-  z1 = - Hc0 * D + (l / 2 * sin(0.2 * PI - E) - w / 2);
+  z1 = - Hc0 * D + (l / 2 * sin(0.2 * PI - Z) - w / 2);
 
-  x2 = -Hc1 * cos(A) * sin(A) + (l / 2 * cos(0.2 * PI + E) - w); //a为俯仰角
+  x2 = -Hc1 * cos(A) * sin(A) + (l / 2 * cos(0.2 * PI + Z) - w); //a为俯仰角
   y2 = -Hc1 * cos(A) * cos(A) / cos(D); //d为横滚角
-  z2 = Hc1 * D + l / 2 * sin(0.2 * PI + E) - w / 2;
+  z2 = Hc1 * D + l / 2 * sin(0.2 * PI + Z) - w / 2;
 
   x3 = -Hc2 * cos(A) * sin(A);
-  // x3 = -Hc2 * cos(A) * sin(A) + (1 / 2 * cos(0.2 * PI + E)-w/2);
+  // x3 = -Hc2 * cos(A) * sin(A) + (1 / 2 * cos(0.2 * PI + Z)-w/2);
   y3 = -Hc2 * cos(A) * cos(A) / cos(D);
-  z3 = -Hc2 * D + (l / 2 * sin(0.2 * PI + E) - w / 2);
+  z3 = -Hc2 * D + (l / 2 * sin(0.2 * PI + Z) - w / 2);
 
-  x4 = -Hc3 * cos(A) * sin(A) - (l / 2 * cos(0.2 * PI - E) - w);
+  x4 = -Hc3 * cos(A) * sin(A) - (l / 2 * cos(0.2 * PI - Z) - w);
   y4 = -Hc3 * cos(A) * cos(A) / cos(D);
-  z4 = Hc3 * D + (l / 2 * sin(0.2 * PI - E) - w / 2);
+  z4 = Hc3 * D + (l / 2 * sin(0.2 * PI - Z) - w / 2);
 
   x1 = -x1;
   x2 = -x2;
@@ -653,7 +645,7 @@ void balance()//自稳
   Hc0 = 2 * c - Hc2; //腿1高度
   Hc3 = 2 * Hc - Hc0; //腿4高度
   D = -cos(D) * sin(D);
-  wentai();
+  stable();
 
 }
 void zitai()//用于姿态
@@ -667,7 +659,7 @@ void zitai()//用于姿态
   Hc0 = 2 * c - Hc2; //腿1高度
   Hc3 = 2 * Hc - Hc0; //腿4高度
   D = cos(D) * sin(D);
-  wentai();
+  stable();
 }
 void balance2()//用于平衡
 {
@@ -682,7 +674,7 @@ void balance2()//用于平衡
   Hc3 = 2 * Hc - Hc0; //腿4高度
   D = cos(D) * sin(D);   // +/- 根据MPU的方向来定
 
-  wentai();
+  stable();
 
 }
 
