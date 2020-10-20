@@ -241,18 +241,33 @@ void stand()    //站立
   pwm.writeMicroseconds(LR_S, d2p(X3));//腿3小腿转角
 
   pwm.writeMicroseconds(RBS, d2p(J4));//腿4肩关节横向转角
-  pwm.writeMicroseconds(RR_H,  d2p(D4));//腿4大腿转角
-  pwm.writeMicroseconds(RR_S,  d2p(X4));//腿4小腿转角
+  pwm.writeMicroseconds(RR_H, d2p(D4));//腿4大腿转角
+  pwm.writeMicroseconds(RR_S, d2p(X4));//腿4小腿转角
 }
+void rests(){
+  pwm.writeMicroseconds(LFS, d2p(J1));//腿1肩关节横向转角
+  pwm.writeMicroseconds(LF_H, d2p(D1+15));//腿1大腿转角
+  pwm.writeMicroseconds(LF_S, d2p(X1-70));//腿1小腿转角
 
-//对角小跑步态
+  pwm.writeMicroseconds(RFS, d2p(J2));//腿2肩关节横向转角
+  pwm.writeMicroseconds(RF_H, d2p(D2-15));//腿2大腿转角
+  pwm.writeMicroseconds(RF_S, d2p(X2+70));//腿2小腿转角
 
+  pwm.writeMicroseconds(LBS, d2p(J3));//腿3肩关节横向转角
+  pwm.writeMicroseconds(LR_H, d2p(D3+15));//腿3大腿转角
+  pwm.writeMicroseconds(LR_S, d2p(X3-70));//腿3小腿转角
+
+  pwm.writeMicroseconds(RBS, d2p(J4));//腿4肩关节横向转角
+  pwm.writeMicroseconds(RR_H, d2p(D4-15));//腿4大腿转角
+  pwm.writeMicroseconds(RR_S, d2p(X4+70));//腿4小腿转角
+  
+}
 void trot()//小跑步态
 {
   d = atan(z / Ht);
   r1 = 45;
   r2 = 90;
-  H0 = 40; //抬腿最大高度，Y轴方向
+  H0 = 35; //抬腿最大高度，Y轴方向
 
 
   if (t < Tm) //前半周期，1、4腿在后；2、3腿在前
