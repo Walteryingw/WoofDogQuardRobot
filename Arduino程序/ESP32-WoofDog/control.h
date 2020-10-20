@@ -48,6 +48,9 @@ void control() {    //蓝牙串口命令,也适用WIFI无线串口
         case 107:  //校准
           k = "calib";
           break;
+        case 116://
+          k = "rests"; // 休息
+          break;
         case 115:   //  右移
           k = "toRT";
           break;
@@ -165,18 +168,18 @@ void control() {    //蓝牙串口命令,也适用WIFI无线串口
     balance();  //静姿态
   }
   else if (k == "up") { //加高
-    Hc = Hc + 2;
+    Ht = Ht + 2;
     delay(50);
     baidong2();
-    if (Hc > 130)
-      Hc = 130;
+    if (Ht > 130)
+      Ht = 130;
   }
   else if (k == "down") { //变矮
-    Hc = Hc - 2;
+    Ht = Ht - 2;
     delay(50);
     baidong2();
-    if (Hc < 50)
-      Hc = 50;
+    if (Ht < 50)
+      Ht = 50;
   }
   else if (k == "zd") { //左摆
     DX = DX + 1;
@@ -237,6 +240,9 @@ void control() {    //蓝牙串口命令,也适用WIFI无线串口
 
   else if (k == "jump") {
     jump();
+  }
+  else if (k == "rests") {
+    rests();
   }
   else if (k == "scalib") {
     j[0] = 8;
