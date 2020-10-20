@@ -190,66 +190,66 @@ float d2p(float deg)  //角度转换成舵机毫秒脉冲
 
 void servopwm()//关节计算角度对应到舵机转角, pwm.writeMicroseconds用的是毫秒,还有pwm.setPWM(),用的是脉冲
 { calculate();
-  pwm.writeMicroseconds(LFS, d2p(z8 + s1)); //腿1肩关节横向转角
-  pwm.writeMicroseconds(LF_H, d2p(Z0 + bl1)); //腿1大腿转角
-  pwm.writeMicroseconds(LF_S, d2p(Z4 + sl1)); //腿1小腿转角   /////
+  pwm.writeMicroseconds(LFS, d2p(J1 + s1)); //腿1肩关节横向转角
+  pwm.writeMicroseconds(LF_H, d2p(D1 + bl1)); //腿1大腿转角
+  pwm.writeMicroseconds(LF_S, d2p(X1 + sl1)); //腿1小腿转角   /////
 
-  pwm.writeMicroseconds(RFS, d2p(z9 - s2)); //腿2肩关节横向转角
-  pwm.writeMicroseconds(RF_H, d2p(Z1 - bl2)); //腿2大腿转角
-  pwm.writeMicroseconds(RF_S, d2p(z5 - sl2)); //腿2小腿转角     /////
+  pwm.writeMicroseconds(RFS, d2p(J2 - s2)); //腿2肩关节横向转角
+  pwm.writeMicroseconds(RF_H, d2p(D2 - bl2)); //腿2大腿转角
+  pwm.writeMicroseconds(RF_S, d2p(X2 - sl2)); //腿2小腿转角     /////
 
-  pwm.writeMicroseconds(LBS, d2p(z10 - s3)); //腿3肩关节横向转角
-  pwm.writeMicroseconds(LR_H, d2p(Z2 + bl3)); //腿3大腿转角        ///
-  pwm.writeMicroseconds(LR_S, d2p(z6 + sl3)); //腿3小腿转角       /////
+  pwm.writeMicroseconds(LBS, d2p(J3 - s3)); //腿3肩关节横向转角
+  pwm.writeMicroseconds(LR_H, d2p(D3 + bl3)); //腿3大腿转角        ///
+  pwm.writeMicroseconds(LR_S, d2p(X3 + sl3)); //腿3小腿转角       /////
 
-  pwm.writeMicroseconds(RBS, d2p(z11 + s4)); //腿4肩关节横向转角
-  pwm.writeMicroseconds(RR_H,  d2p(Z3 - bl4)); //腿4大腿转角       ////
-  pwm.writeMicroseconds(RR_S,  d2p(z7 - sl4)); //腿4小腿转角                ////
+  pwm.writeMicroseconds(RBS, d2p(J4 + s4)); //腿4肩关节横向转角
+  pwm.writeMicroseconds(RR_H,  d2p(D4 - bl4)); //腿4大腿转角       ////
+  pwm.writeMicroseconds(RR_S,  d2p(X4 - sl4)); //腿4小腿转角                ////
 }
 void calib()    //调中,所有90度
 {
-  pwm.writeMicroseconds(LFS, d2p(z8));//腿1肩关节横向转角
-  pwm.writeMicroseconds(LF_H, d2p(Z0 - 45)); //腿1大腿转角
-  pwm.writeMicroseconds(LF_S, d2p(Z4));//腿1小腿转角
+  pwm.writeMicroseconds(LFS, d2p(J1));//腿1肩关节横向转角
+  pwm.writeMicroseconds(LF_H, d2p(D1 - 45)); //腿1大腿转角
+  pwm.writeMicroseconds(LF_S, d2p(X1));//腿1小腿转角
 
-  pwm.writeMicroseconds(RFS, d2p(z9));//腿2肩关节横向转角
-  pwm.writeMicroseconds(RF_H, d2p(Z1 + 45)); //腿2大腿转角
-  pwm.writeMicroseconds(RF_S, d2p(z5));//腿2小腿转角
+  pwm.writeMicroseconds(RFS, d2p(J2));//腿2肩关节横向转角
+  pwm.writeMicroseconds(RF_H, d2p(D2 + 45)); //腿2大腿转角
+  pwm.writeMicroseconds(RF_S, d2p(X2));//腿2小腿转角
 
-  pwm.writeMicroseconds(LBS, d2p(z10));//腿3肩关节横向转角
-  pwm.writeMicroseconds(LR_H, d2p(Z2 - 45)); //腿3大腿转角
-  pwm.writeMicroseconds(LR_S, d2p(z6));//腿3小腿转角
+  pwm.writeMicroseconds(LBS, d2p(J3));//腿3肩关节横向转角
+  pwm.writeMicroseconds(LR_H, d2p(D3 - 45)); //腿3大腿转角
+  pwm.writeMicroseconds(LR_S, d2p(X3));//腿3小腿转角
 
-  pwm.writeMicroseconds(RBS, d2p(z11));//腿4肩关节横向转角
-  pwm.writeMicroseconds(RR_H,  d2p(Z3 + 45)); //腿4大腿转角
-  pwm.writeMicroseconds(RR_S,  d2p(z7));//腿4小腿转角
+  pwm.writeMicroseconds(RBS, d2p(J4));//腿4肩关节横向转角
+  pwm.writeMicroseconds(RR_H,  d2p(D4 + 45)); //腿4大腿转角
+  pwm.writeMicroseconds(RR_S,  d2p(X4));//腿4小腿转角
 
 }
 
 void stand()    //站立
 {
-  pwm.writeMicroseconds(LFS, d2p(z8));//腿1肩关节横向转角
-  pwm.writeMicroseconds(LF_H, d2p(Z0));//腿1大腿转角
-  pwm.writeMicroseconds(LF_S, d2p(Z4));//腿1小腿转角
+  pwm.writeMicroseconds(LFS, d2p(J1));//腿1肩关节横向转角
+  pwm.writeMicroseconds(LF_H, d2p(D1));//腿1大腿转角
+  pwm.writeMicroseconds(LF_S, d2p(X1));//腿1小腿转角
 
-  pwm.writeMicroseconds(RFS, d2p(z9));//腿2肩关节横向转角
-  pwm.writeMicroseconds(RF_H, d2p(Z1));//腿2大腿转角
-  pwm.writeMicroseconds(RF_S, d2p(z5));//腿2小腿转角
+  pwm.writeMicroseconds(RFS, d2p(J2));//腿2肩关节横向转角
+  pwm.writeMicroseconds(RF_H, d2p(D2));//腿2大腿转角
+  pwm.writeMicroseconds(RF_S, d2p(X2));//腿2小腿转角
 
-  pwm.writeMicroseconds(LBS, d2p(z10));//腿3肩关节横向转角
-  pwm.writeMicroseconds(LR_H, d2p(Z2));//腿3大腿转角
-  pwm.writeMicroseconds(LR_S, d2p(z6));//腿3小腿转角
+  pwm.writeMicroseconds(LBS, d2p(J3));//腿3肩关节横向转角
+  pwm.writeMicroseconds(LR_H, d2p(D3));//腿3大腿转角
+  pwm.writeMicroseconds(LR_S, d2p(X3));//腿3小腿转角
 
-  pwm.writeMicroseconds(RBS, d2p(z11));//腿4肩关节横向转角
-  pwm.writeMicroseconds(RR_H,  d2p(Z3));//腿4大腿转角
-  pwm.writeMicroseconds(RR_S,  d2p(z7));//腿4小腿转角
+  pwm.writeMicroseconds(RBS, d2p(J4));//腿4肩关节横向转角
+  pwm.writeMicroseconds(RR_H,  d2p(D4));//腿4大腿转角
+  pwm.writeMicroseconds(RR_S,  d2p(X4));//腿4小腿转角
 }
 
 //对角小跑步态
 
 void trot()//小跑步态
 {
-  d = atan(z / Hc);
+  d = atan(z / Ht);
   r1 = 45;
   r2 = 90;
   H0 = 40; //抬腿最大高度，Y轴方向
@@ -261,7 +261,7 @@ void trot()//小跑步态
     b = (0.5 - 0.5 * cos(2 * PI * t / Tm)); //b参数，接下来带入方程
 
     x1 = S0 * (t / Tm - 1 / (2 * PI) * sin(2 * PI * t / Tm)) - 0.5 * S0; //腿1 X轴坐标，前进方向，S0为迈腿长度
-    y5 = (H0 * b - Hc) / c; //腿1 Y轴坐标，抬腿方向
+    y5 = (H0 * b - Ht) / c; //腿1 Y轴坐标，抬腿方向
     z1 = a + z * cos(PI * t / Tm); //腿1 Z轴坐标，转弯方向
 
     x4 = x1; //腿4 X轴坐标，前进方向（腿外侧为正向）  ///
@@ -269,7 +269,7 @@ void trot()//小跑步态
     z4 = z1; //腿4 Z轴坐标
 
     x2 = -x1; //腿2 X轴坐标，前进方向      ///
-    y2 = (-H0 / 40 * b - Hc) / c; //腿2 Y轴坐标，抬腿方向
+    y2 = (-H0 / 40 * b - Ht) / c; //腿2 Y轴坐标，抬腿方向
     //y1=-Hc/c;
     z2 = z1; //腿2 Z轴坐标，转弯方向
 
@@ -284,7 +284,7 @@ void trot()//小跑步态
     b = (0.5 - 0.5 * cos(2 * PI * (t - Tm) / Tm));
 
     x1 = 0.5 * S0 - S0 * ((t - Tm) / Tm - 1 / (2 * PI) * sin(2 * PI * (t - Tm) / Tm));
-    y5 = (-H0 / 40 * b - Hc) / c;
+    y5 = (-H0 / 40 * b - Ht) / c;
     //y0=-Hc/c;
     z1 = a + z * cos(PI * t / Tm);
 
@@ -293,7 +293,7 @@ void trot()//小跑步态
     z4 = z1;
 
     x2 = -x1;  ////
-    y2 = (H0 * b - Hc) / c;
+    y2 = (H0 * b - Ht) / c;
     z2 = z1;
 
     x3 = x2;
@@ -312,7 +312,7 @@ void trot()//小跑步态
 void turn2()//平移步态
 
 {
-  d = atan(z / Hc);
+  d = atan(z / Ht);
   r1 = 45;
   r2 = 90;
   H0 = 40; //抬腿高度
@@ -327,12 +327,12 @@ void turn2()//平移步态
     c = cos(d * cos(PI * t / Tm));
     b = (0.5 - 0.5 * cos(2 * PI * t / Tm));
     x1 = 0;
-    y5 = (H0 * b - Hc) / c;
+    y5 = (H0 * b - Ht) / c;
     z1 = a + zz * cos(PI * t / Tm);
 
     x2 = 0;
     //y1=(-H0/40*b-Hc)/c;   ////
-    y2 = (-Hc) / c;
+    y2 = (-Ht) / c;
     z2 = a + zz * cos(PI * t / Tm);
 
     x3 = 0;
@@ -350,11 +350,11 @@ void turn2()//平移步态
     b = (0.5 - 0.5 * cos(2 * PI * (t - Tm) / Tm));
     x1 = 0;
     //y0=(-H0/40*b-Hc)/c;     ////
-    y5 = -Hc / c;
+    y5 = -Ht / c;
     z1 = a + zz * cos(PI * t / Tm);
 
     x2 = 0;
-    y2 = (H0 * b - Hc) / c;
+    y2 = (H0 * b - Ht) / c;
     z2 = a + zz * cos(PI * t / Tm);
 
     x3 = 0;
@@ -379,7 +379,7 @@ void turn2()//平移步态
 void walk()//爬行步态，行走步态，相序为1-4-2-3，每个动作四分之一周期
 
 {
-  d = atan(z / Hc);
+  d = atan(z / Ht);
   r1 = 45;
   r2 = 90;
   H0 = 40;
@@ -390,19 +390,19 @@ void walk()//爬行步态，行走步态，相序为1-4-2-3，每个动作四分
     b = (0.5 - 0.5 * cos(2 * PI * t / Tm));
 
     x1 = S0 * (t / Tm - 1 / (2 * PI) * sin(2 * PI * (t + Tm) / Tm)) - 0.5 * S0;
-    y5 = (H0 * b - Hc) / c;
+    y5 = (H0 * b - Ht) / c;
     z1 = a + z * cos(PI * t / Tm);
 
     x3 = 0.5 * S0 - S0 * (t / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * t / (3 * Tm)));
-    y3 = (-Hc) / c;
+    y3 = (-Ht) / c;
     z3 = a + z * cos(PI * t / (3 * Tm));
 
     x2 = 0.5 * S0 - S0 * ((t + Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t + Tm) / (3 * Tm)));
-    y2 = (-Hc) / c;
+    y2 = (-Ht) / c;
     z2 = a + z * cos(PI * (t + Tm) / (3 * Tm));
 
     x4 = 0.5 * S0 - S0 * ((t + 2 * Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t + 2 * Tm) / (3 * Tm)));
-    y4 = (-Hc) / c;
+    y4 = (-Ht) / c;
     z4 = a + z * cos(PI * (t + 5 * Tm) / (3 * Tm));
 
     //x4=-x4;
@@ -415,19 +415,19 @@ void walk()//爬行步态，行走步态，相序为1-4-2-3，每个动作四分
     b = (0.5 - 0.5 * cos(2 * PI * (t - Tm) / Tm));
 
     x1 = 0.5 * S0 - S0 * ((t - Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t - Tm) / (3 * Tm)));
-    y5 = (-Hc) / c;
+    y5 = (-Ht) / c;
     z1 = a + z * cos(PI * (t + 2 * Tm) / (3 * Tm));
 
     x3 = 0.5 * S0 - S0 * (t / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * t / (3 * Tm)));
-    y3 = (-Hc) / c;
+    y3 = (-Ht) / c;
     z3 = a + z * cos(PI * t / (3 * Tm));
 
     x2 = 0.5 * S0 - S0 * ((t + Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t + Tm) / (3 * Tm)));
-    y2 = (-Hc) / c;
+    y2 = (-Ht) / c;
     z2 = a + z * cos(PI * (t + Tm) / (3 * Tm));
 
     x4 = S0 * ((t - Tm) / Tm - 1 / (2 * PI) * sin(2 * PI * (t) / Tm)) - 0.5 * S0;
-    y4 = (H0 * b - Hc) / c;
+    y4 = (H0 * b - Ht) / c;
     z4 = a + z * cos(PI * (t - Tm) / Tm);
 
     //x4=-x4;
@@ -440,19 +440,19 @@ void walk()//爬行步态，行走步态，相序为1-4-2-3，每个动作四分
     b = (0.5 - 0.5 * cos(2 * PI * (t - 2 * Tm) / Tm));
 
     x1 = 0.5 * S0 - S0 * ((t - Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t - Tm) / (3 * Tm)));
-    y5 = (-Hc) / c;
+    y5 = (-Ht) / c;
     z1 = a + z * cos(PI * (t + 2 * Tm) / (3 * Tm));
 
     x3 = 0.5 * S0 - S0 * (t / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * t / (3 * Tm)));
-    y3 = (-Hc) / c;
+    y3 = (-Ht) / c;
     z3 = a + z * cos(PI * t / (3 * Tm));
 
     x2 = S0 * ((t - 2 * Tm) / Tm - 1 / (2 * PI) * sin(2 * PI * (t - Tm) / Tm)) - 0.5 * S0;
-    y2 = (H0 * b - Hc) / c;
+    y2 = (H0 * b - Ht) / c;
     z2 = a + z * cos(PI * (t - Tm) / Tm);
 
     x4 = 0.5 * S0 - S0 * ((t - 2 * Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t - 2 * Tm) / (3 * Tm)));
-    y4 = (-Hc) / c;
+    y4 = (-Ht) / c;
     z4 = a + z * cos(PI * (t + Tm) / (3 * Tm));
 
     //x4=-x4;
@@ -466,19 +466,19 @@ void walk()//爬行步态，行走步态，相序为1-4-2-3，每个动作四分
     b = (0.5 - 0.5 * cos(2 * PI * (t - 3 * Tm) / Tm));
 
     x1 = 0.5 * S0 - S0 * ((t - Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t - Tm) / (3 * Tm)));
-    y5 = (-Hc) / c;
+    y5 = (-Ht) / c;
     z1 = a + z * cos(PI * (t + 2 * Tm) / (3 * Tm));
 
     x3 = S0 * ((t - 3 * Tm) / Tm - 1 / (2 * PI) * sin(2 * PI * (t - 2 * Tm) / Tm)) - 0.5 * S0;
-    y3 = (H0 * b - Hc) / c;
+    y3 = (H0 * b - Ht) / c;
     z3 = a + z * cos(PI * (t - 2 * Tm) / Tm);
 
     x2 = 0.5 * S0 - S0 * ((t - 3 * Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t - 3 * Tm) / (3 * Tm)));
-    y2 = (-Hc) / c;
+    y2 = (-Ht) / c;
     z2 = a + z * cos(PI * (t - 3 * Tm) / (3 * Tm));
 
     x4 = 0.5 * S0 - S0 * ((t - 2 * Tm) / (3 * Tm) - 1 / (2 * PI) * sin(2 * PI * (t - 2 * Tm) / (3 * Tm)));
-    y4 = (-Hc) / c;
+    y4 = (-Ht) / c;
     z4 = a + z * cos(PI * (t + Tm) / (3 * Tm));
 
     //x4=-x4;
@@ -638,12 +638,12 @@ void balance()//自稳
   //   A=-A;     //+/- 根据MPU的方向来定
   //  D=-D;     //+/- 根据MPU的方向来定
 
-  c = Hc - (w / 2) * sin(D); //90为四足机器人矩形宽度的一半
-  b = Hc - (l / 2) * sin(A); //120为四足机器人矩形长度的一半
-  Hc2 = c + b - Hc; //腿3高度
-  Hc1 = 2 * Hc - Hc2; //腿2高度
-  Hc0 = 2 * c - Hc2; //腿1高度
-  Hc3 = 2 * Hc - Hc0; //腿4高度
+  c = Ht - (w / 2) * sin(D); 
+  b = Ht - (l / 2) * sin(A); 
+  Ht3 = c + b - Ht; //腿3高度
+  Ht2 = 2 * Ht - Ht3; //腿2高度
+  Ht1 = 2 * c - Ht3; //腿1高度
+  Ht4 = 2 * Ht - Ht1; //腿4高度
   D = -cos(D) * sin(D);
   stable();
 
@@ -652,12 +652,12 @@ void zitai()//用于姿态
 { A = -AX / 180 * PI;
   D = DX / 180 * PI;
 
-  c = Hc - (w / 2) * sin(D); //90为四足机器人矩形宽度的一半
-  b = Hc - (l / 2) * sin(A); //120为四足机器人矩形长度的一半
-  Hc2 = c + b - Hc; //腿3高度
-  Hc1 = 2 * Hc - Hc2; //腿2高度
-  Hc0 = 2 * c - Hc2; //腿1高度
-  Hc3 = 2 * Hc - Hc0; //腿4高度
+  c = Ht - (w / 2) * sin(D); 
+  b = Ht - (l / 2) * sin(A); 
+  Ht3 = c + b - Ht; //腿3高度
+  Ht2 = 2 * Ht - Ht3; //腿2高度
+  Ht1 = 2 * c - Ht3; //腿1高度
+  Ht4 = 2 * Ht - Ht1; //腿4高度
   D = cos(D) * sin(D);
   stable();
 }
@@ -666,12 +666,12 @@ void balance2()//用于平衡
   mpu6050(); //调用MPU角度
   //   A=-A;     //+/- 根据MPU的方向来定
   //  D=-D;     //+/- 根据MPU的方向来定
-  c = Hc - (w / 2) * sin(D); //90为四足机器人矩形宽度的一半
-  b = Hc - (l / 2) * sin(A); //120为四足机器人矩形长度的一半
-  Hc2 = c + b - Hc; //腿3高度
-  Hc1 = 2 * Hc - Hc2; //腿2高度
-  Hc0 = 2 * c - Hc2; //腿1高度
-  Hc3 = 2 * Hc - Hc0; //腿4高度
+  c = Ht - (w / 2) * sin(D); 
+  b = Ht - (l / 2) * sin(A);
+  Ht3 = c + b - Ht; //腿3高度
+  Ht2 = 2 * Ht - Ht3; //腿2高度
+  Ht1 = 2 * c - Ht3; //腿1高度
+  Ht4 = 2 * Ht - Ht1; //腿4高度
   D = cos(D) * sin(D);   // +/- 根据MPU的方向来定
 
   stable();
@@ -681,19 +681,19 @@ void balance2()//用于平衡
 void baidong2()//调整高度方程，四条腿高度相同
 {
   x1 = 0;
-  y5 = -Hc;
+  y5 = -Ht;
   z1 = 25;
 
   x2 = 0;
-  y2 = -Hc;
+  y2 = -Ht;
   z2 = 25;
 
   x3 = 0;
-  y3 = -Hc;
+  y3 = -Ht;
   z3 = 25;
 
   x4 = 0;
-  y4 = -Hc;
+  y4 = -Ht;
   z4 = 25;
 
   servopwm();
