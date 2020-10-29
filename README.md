@@ -9,4 +9,4 @@ WoofDog四足机器人程序是基于ESP32-ARDUINO主控的12自由度四足舵�
 配合蓝牙遥控APP可实现步距、步频动态调节， 也即无级变速功能
 
 欢迎加入QQ群 932148 交流讨论
-<img> https://github.com/Walteryingw/WoofDogQuardRobot/blob/main/STL%20%E6%96%87%E4%BB%B6/%E6%97%A0%E6%A0%87%E9%A2%98.jpg</img>
+<img src="https://github.com/Walteryingw/WoofDogQuardRobot/blob/main/STL%20%E6%96%87%E4%BB%B6/%E6%97%A0%E6%A0%87%E9%A2%98.jpg">
