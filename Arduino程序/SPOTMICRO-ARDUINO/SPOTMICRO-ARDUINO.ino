@@ -221,8 +221,7 @@ void trot()//小跑步态
     z4 = z1; //腿4 Z轴坐标
 
     x2 = -x1; //腿2 X轴坐标，前进方向      ///
-    y2 = (-H0 / 40 * b - Ht) / c; //腿2 Y轴坐标，抬腿方向
-    //y1=-Ht/c;
+    y2=-Ht/c;
     z2 = z1; //腿2 Z轴坐标，转弯方向
 
     x3 = x2; //腿3 X轴坐标，前进方向（腿外侧为正向）  /////
@@ -236,8 +235,7 @@ void trot()//小跑步态
     b = (0.5 - 0.5 * cos(2 * PI * (t - Tm) / Tm));
 
     x1 = 0.5 * S0 - S0 * ((t - Tm) / Tm - 1 / (2 * PI) * sin(2 * PI * (t - Tm) / Tm));
-    y5 = (-H0 / 40 * b - Ht) / c;
-    //y0=-Ht/c;
+    y5=-Ht/c;
     z1 = a + z * cos(PI * t / Tm);
 
     x4 = x1; ///
@@ -284,7 +282,6 @@ void turn2()//平移步态
     z1 = a + zz * cos(PI * t / Tm);
 
     x2 = 0;
-    //y1=(-H0/40*b-Ht)/c;   ////
     y2 = (-Ht) / c;
     z2 = a + zz * cos(PI * t / Tm);
 
@@ -302,7 +299,6 @@ void turn2()//平移步态
     c = cos(d * cos(PI * t / Tm));
     b = (0.5 - 0.5 * cos(2 * PI * (t - Tm) / Tm));
     x1 = 0;
-    //y0=(-H0/40*b-Ht)/c;     ////
     y5 = -Ht / c;
     z1 = a + zz * cos(PI * t / Tm);
 
