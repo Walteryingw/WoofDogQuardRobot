@@ -620,22 +620,22 @@ void stable()//静态方程
   float Z;
   Z = z / 180.0 * PI; //E为航向角
 
-  x1 = -Hc0 * cos(A) * sin(A) + (l / 2 * cos(0.2 * PI - Z) - w); //a为俯仰角//
-  y5 = -Hc0 * cos(A) * cos(A) / cos(D); //d为横滚角
-  z1 = - Hc0 * D + (l / 2 * sin(0.2 * PI - Z) - w / 2);
+  x1 = -Ht1 * cos(A) * sin(A) + (l / 2 * cos(0.2 * PI - Z) - w); //a为俯仰角//
+  y5 = -Ht1 * cos(A) * cos(A) / cos(D); //d为横滚角
+  z1 = - Ht1 * D + (l / 2 * sin(0.2 * PI - Z) - w / 2);
 
-  x2 = -Hc1 * cos(A) * sin(A) + (l / 2 * cos(0.2 * PI + Z) - w); //a为俯仰角
-  y2 = -Hc1 * cos(A) * cos(A) / cos(D); //d为横滚角
-  z2 = Hc1 * D + l / 2 * sin(0.2 * PI + Z) - w / 2;
+  x2 = -Ht2 * cos(A) * sin(A) + (l / 2 * cos(0.2 * PI + Z) - w); //a为俯仰角
+  y2 = -Ht2 * cos(A) * cos(A) / cos(D); //d为横滚角
+  z2 = Ht2 * D + l / 2 * sin(0.2 * PI + Z) - w / 2;
 
-  x3 = -Hc2 * cos(A) * sin(A);
+  x3 = -Ht3 * cos(A) * sin(A);
   // x3 = -Hc2 * cos(A) * sin(A) + (1 / 2 * cos(0.2 * PI + Z)-w/2);
-  y3 = -Hc2 * cos(A) * cos(A) / cos(D);
-  z3 = -Hc2 * D + (l / 2 * sin(0.2 * PI + Z) - w / 2);
+  y3 = -Ht3 * cos(A) * cos(A) / cos(D);
+  z3 = -Ht3 * D + (l / 2 * sin(0.2 * PI + Z) - w / 2);
 
-  x4 = -Hc3 * cos(A) * sin(A) - (l / 2 * cos(0.2 * PI - Z) - w);
-  y4 = -Hc3 * cos(A) * cos(A) / cos(D);
-  z4 = Hc3 * D + (l / 2 * sin(0.2 * PI - Z) - w / 2);
+  x4 = -Ht4 * cos(A) * sin(A) - (l / 2 * cos(0.2 * PI - Z) - w);
+  y4 = -Ht4 * cos(A) * cos(A) / cos(D);
+  z4 = Ht4* D + (l / 2 * sin(0.2 * PI - Z) - w / 2);
 
   x1 = -x1;
   x2 = -x2;
